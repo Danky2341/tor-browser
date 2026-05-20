@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tor Browser</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f4f0f8;
+            color: #2d1f33;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #59316b;
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6b5b77;
+            margin-bottom: 25px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .hint {
+            text-align: center;
+            font-size: 0.85em;
+            color: #8a7a95;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            background: #7d4698;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(125, 70, 152, 0.3);
+        }
+
+        button:hover {
+            background: #59316b;
+        }
+
+        ul {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            list-style: "🔒 ";
+        }
+
+        li {
+            padding: 5px 0;
+        }
+
+        p {
+            background: white;
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 4px solid #7d4698;
+            font-style: italic;
+        }
+
+        a {
+            color: #7d4698;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="greeting">Добро пожаловать в Tor Browser</h1>
+    <p class="subtitle">Браузер для анонимного и приватного интернета</p>
+
+    <img id="mainImage"
+    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%237d4698' rx='12'/%3E%3Ccircle cx='250' cy='120' r='55' fill='white'/%3E%3Ctext x='250' y='135' text-anchor='middle' font-size='50'%3E🧅%3C/text%3E%3Ctext x='250' y='230' text-anchor='middle' font-size='26' font-weight='bold' fill='white'%3ETor Browser%3C/text%3E%3C/svg%3E"
+    alt="Tor Browser логотип"
+    title="Нажмите для смены изображения"
+    >
+
+    <p class="hint">👆 Нажмите на изображение, чтобы переключить его</p>
+
+    <button id="changeUserBtn">👤 Сменить пользователя</button>
+
+    <ul>
+        <li>Трёхслойное шифрование трафика</li>
+        <li>Блокировка трекеров и скриптов</li>
+        <li>Автоматическая очистка cookies</li>
+        <li>Защита от цифровых отпечатков</li>
+        <li>Доступ к сайтам .onion</li>
+    </ul>
+
+    <p>
+        Tor Browser изолирует каждый сайт, который вы посещаете, поэтому сторонние трекеры и реклама не могут следовать за вами.
+    </p>
+
+    <p style="border-left-color: #a56cc1; text-align: center;">
+        <a href="https://www.torproject.org/download/" target="_blank">📥 Скачать с torproject.org</a>
+    </p>
+
+    <script>
+        const images = [
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%237d4698' rx='12'/%3E%3Ccircle cx='250' cy='120' r='55' fill='white'/%3E%3Ctext x='250' y='135' text-anchor='middle' font-size='50'%3E🧅%3C/text%3E%3Ctext x='250' y='230' text-anchor='middle' font-size='26' font-weight='bold' fill='white'%3ETor Browser%3C/text%3E%3C/svg%3E",
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%232d1f33' rx='12'/%3E%3Ccircle cx='130' cy='140' r='20' fill='%237d4698'/%3E%3Ccircle cx='250' cy='80' r='20' fill='%23a56cc1'/%3E%3Ccircle cx='370' cy='140' r='20' fill='%23c99de0'/%3E%3Cline x1='148' y1='136' x2='232' y2='88' stroke='white' stroke-width='2' stroke-dasharray='6,4'/%3E%3Cline x1='268' y1='88' x2='352' y2='136' stroke='white' stroke-width='2' stroke-dasharray='6,4'/%3E%3Ctext x='250' y='220' text-anchor='middle' font-size='18' font-weight='bold' fill='white'%3EТрёхслойное шифрование%3C/text%3E%3Ctext x='250' y='245' text-anchor='middle' font-size='14' fill='%23c99de0'%3EВходной → Средний → Выходной%3C/text%3E%3C/svg%3E",
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23e8dff0' rx='12'/%3E%3Ctext x='250' y='120' text-anchor='middle' font-size='80'%3E🌍%3C/text%3E%3Ctext x='250' y='200' text-anchor='middle' font-size='22' font-weight='bold' fill='%234a3058'%3EПриватность без границ%3C/text%3E%3Ctext x='250' y='230' text-anchor='middle' font-size='14' fill='%236b5b77'%3EОбход цензуры и анонимность%3C/text%3E%3C/svg%3E",
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%231f0d2b' rx='12'/%3E%3Ctext x='250' y='120' text-anchor='middle' font-size='70'%3E🛡️%3C/text%3E%3Ctext x='250' y='200' text-anchor='middle' font-size='24' font-weight='bold' fill='white'%3EВаши данные — только ваши%3C/text%3E%3Ctext x='250' y='235' text-anchor='middle' font-size='14' fill='%23c99de0'%3ETor Browser · свобода в интернете%3C/text%3E%3C/svg%3E"
+        ];
+        let current = 0;
+        const imgEl = document.getElementById('mainImage');
+        const headingEl = document.getElementById('greeting');
+
+        imgEl.addEventListener('click', () => {
+            current = (current + 1) % images.length;
+            imgEl.style.opacity = '0';
+            setTimeout(() => {
+                imgEl.src = images[current];
+                imgEl.style.opacity = '1';
+            }, 150);
+        });
+
+        document.getElementById('changeUserBtn').addEventListener('click', () => {
+            const name = prompt('Введите ваше имя:');
+            if (name && name.trim()) {
+                localStorage.setItem('torUser', name.trim());
+                headingEl.textContent = 'Привет, ' + name.trim() + '! Добро пожаловать в Tor Browser';
+            } else if (name === '') {
+                localStorage.removeItem('torUser');
+                headingEl.textContent = 'Добро пожаловать в Tor Browser';
+            }
+        });
+
+        const saved = localStorage.getItem('torUser');
+        if (saved) {
+            headingEl.textContent = 'Привет, ' + saved + '! Добро пожаловать в Tor Browser';
+        }
+    </script>
+</body>
+</html>
